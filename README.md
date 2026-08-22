@@ -3,11 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>MEDIA ROOM</title>
 
 <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
 
 <style>
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
 * {
     margin: 0;
     padding: 0;
@@ -19,7 +25,6 @@ html {
 }
 
 body {
-    min-height: 100vh;
     background: #050505;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
@@ -28,35 +33,43 @@ body {
 
 
 /* =====================================================
-   BOOT SCREEN
+   90s COMPUTER BOOT
 ===================================================== */
 
 #boot-screen {
     position: fixed;
     inset: 0;
     z-index: 99999;
+
     background: #050505;
-    color: #d7d7d7;
+    color: #ccc;
+
     font-family: "Courier New", monospace;
+
+    padding: 25px;
+
     display: flex;
     flex-direction: column;
-    padding: 30px;
-    overflow: hidden;
-    transition: opacity .8s ease, visibility .8s ease;
+
+    transition:
+        opacity .8s ease,
+        visibility .8s ease;
 }
 
 .boot-top {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+
     border-bottom: 1px solid #333;
+
     padding-bottom: 12px;
-    margin-bottom: 20px;
-    font-size: 13px;
+    margin-bottom: 15px;
+
+    font-size: 12px;
 }
 
 .boot-logo {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: bold;
     letter-spacing: 2px;
 }
@@ -64,9 +77,9 @@ body {
 #boot-code {
     flex: 1;
     overflow: hidden;
-    font-size: 12px;
-    line-height: 1.55;
-    color: #aaa;
+
+    font-size: 11px;
+    line-height: 1.5;
 }
 
 .code-line {
@@ -74,11 +87,11 @@ body {
 }
 
 .code-gray {
-    color: #666;
+    color: #555;
 }
 
 .code-white {
-    color: #ddd;
+    color: #bbb;
 }
 
 .code-green {
@@ -86,69 +99,83 @@ body {
 }
 
 .code-blue {
-    color: #8bbcff;
-}
-
-.code-yellow {
-    color: #d9d16c;
+    color: #8baeff;
 }
 
 .boot-bottom {
     border-top: 1px solid #333;
-    padding-top: 18px;
-    margin-top: 15px;
+
+    padding-top: 15px;
 }
 
 #boot-status {
-    margin-top: 12px;
-    font-size: 13px;
+    font-size: 12px;
 }
 
 .progress-container {
     width: 100%;
-    height: 14px;
+    height: 13px;
+
     border: 1px solid #555;
-    margin-top: 12px;
+
+    margin-top: 10px;
+
     padding: 2px;
 }
 
 #progress {
-    width: 0%;
     height: 100%;
+    width: 0%;
+
     background: #ddd;
+
     transition: width .1s linear;
 }
 
 .cursor {
     display: inline-block;
+
     width: 8px;
     height: 14px;
-    background: #ddd;
+
+    background: white;
+
     animation: blink .8s infinite;
-    vertical-align: middle;
 }
 
 @keyframes blink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
+
+    0%, 50% {
+        opacity: 1;
+    }
+
+    51%, 100% {
+        opacity: 0;
+    }
+
 }
 
 #ready {
     position: absolute;
     inset: 0;
-    background: #050505;
+
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+
+    background: #050505;
+
     opacity: 0;
+
     pointer-events: none;
-    transition: opacity .5s ease;
+
+    transition: opacity .5s;
 }
 
 #ready h1 {
-    font-size: 25px;
     letter-spacing: 5px;
+    font-size: 25px;
 }
 
 #ready p {
@@ -165,15 +192,20 @@ body {
 .navbar {
     position: sticky;
     top: 0;
+
     z-index: 1000;
-    width: 100%;
+
     padding: 18px 30px;
-    background: rgba(5,5,5,.85);
+
+    background: rgba(5,5,5,.88);
+
     backdrop-filter: blur(18px);
-    border-bottom: 1px solid rgba(255,255,255,.08);
+
+    border-bottom: 1px solid #181818;
+
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
 }
 
 .logo {
@@ -184,34 +216,38 @@ body {
 
 .nav-buttons {
     display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
+    gap: 7px;
 }
 
 .nav-btn {
-    border: none;
-    color: #aaa;
     background: transparent;
-    padding: 10px 15px;
-    border-radius: 10px;
+
+    border: none;
+
+    color: #777;
+
+    padding: 10px 14px;
+
+    border-radius: 9px;
+
     cursor: pointer;
-    font-size: 13px;
-    transition: .25s;
+
+    transition: .2s;
 }
 
 .nav-btn:hover {
-    background: #1b1b1b;
+    background: #171717;
     color: white;
 }
 
 .nav-btn.active {
     background: white;
-    color: #050505;
+    color: black;
 }
 
 
 /* =====================================================
-   MAIN
+   SECTIONS
 ===================================================== */
 
 main {
@@ -221,8 +257,10 @@ main {
 
 .section {
     display: none;
+
     min-height: calc(100vh - 75px);
-    padding: 50px 0;
+
+    padding: 55px 0;
 }
 
 .section.active {
@@ -230,17 +268,17 @@ main {
 }
 
 .section-header {
-    margin-bottom: 30px;
+    margin-bottom: 35px;
 }
 
 .section-header h1 {
-    font-size: clamp(30px, 5vw, 52px);
+    font-size: clamp(32px, 5vw, 55px);
     letter-spacing: -2px;
 }
 
 .section-header p {
-    color: #888;
     margin-top: 8px;
+    color: #777;
     font-size: 14px;
 }
 
@@ -251,18 +289,26 @@ main {
 
 .spotify-layout {
     display: grid;
+
     grid-template-columns: 1fr 1fr;
+
     gap: 35px;
+
     align-items: center;
 }
 
 .spotify-window {
     width: 100%;
     height: 600px;
-    border-radius: 20px;
-    overflow: hidden;
+
     background: #121212;
-    box-shadow: 0 25px 60px rgba(0,0,0,.65);
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 30px 70px rgba(0,0,0,.7);
 }
 
 #spotify-player {
@@ -277,14 +323,27 @@ main {
 
 .turntable {
     width: min(480px, 90vw);
+
     aspect-ratio: 1;
+
     margin: auto;
-    position: relative;
+
     display: flex;
-    align-items: center;
+
     justify-content: center;
+    align-items: center;
+
+    position: relative;
+
     border-radius: 30px;
-    background: linear-gradient(145deg, #202020, #080808);
+
+    background:
+        linear-gradient(
+            145deg,
+            #202020,
+            #080808
+        );
+
     box-shadow:
         0 30px 70px rgba(0,0,0,.8),
         inset 0 0 40px rgba(0,0,0,.8);
@@ -293,8 +352,10 @@ main {
 .vinyl {
     width: 76%;
     aspect-ratio: 1;
-    border-radius: 50%;
+
     position: relative;
+
+    border-radius: 50%;
 
     background:
         repeating-radial-gradient(
@@ -306,10 +367,11 @@ main {
         );
 
     box-shadow:
-        0 20px 40px rgba(0,0,0,.9),
-        inset 0 0 30px rgba(255,255,255,.04);
+        0 20px 40px rgba(0,0,0,.9);
 
-    animation: vinylSpin 4s linear infinite;
+    animation:
+        vinylSpin 4s linear infinite;
+
     animation-play-state: paused;
 }
 
@@ -318,6 +380,7 @@ main {
 }
 
 @keyframes vinylSpin {
+
     from {
         transform: rotate(0deg);
     }
@@ -325,114 +388,131 @@ main {
     to {
         transform: rotate(360deg);
     }
-}
 
-.vinyl::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,.11),
-            transparent 25%,
-            transparent 70%,
-            rgba(255,255,255,.03)
-        );
 }
 
 .label {
     position: absolute;
+
     width: 32%;
     aspect-ratio: 1;
+
     left: 50%;
     top: 50%;
+
     transform: translate(-50%, -50%);
+
     border-radius: 50%;
 
     background:
         radial-gradient(
             circle,
-            #666,
-            #282828 55%,
+            #777,
+            #292929 55%,
             #111
         );
 
     display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
 
-    border: 2px solid rgba(255,255,255,.12);
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
 }
 
 .label span {
-    font-size: 10px;
-    font-weight: bold;
+    font-size: 9px;
     letter-spacing: 2px;
+    font-weight: bold;
 }
 
 .hole {
     position: absolute;
+
     width: 9px;
     height: 9px;
+
     left: 50%;
     top: 50%;
+
     transform: translate(-50%, -50%);
+
     border-radius: 50%;
-    background: #000;
+
+    background: black;
 }
 
 .arm {
     position: absolute;
+
     width: 42%;
     height: 8px;
+
     right: 3%;
     top: 15%;
+
     border-radius: 10px;
+
     background: #777;
+
     transform: rotate(25deg);
+
     transform-origin: right center;
 }
 
 .arm::after {
     content: "";
+
     position: absolute;
+
     right: -5px;
     top: -4px;
+
     width: 16px;
     height: 16px;
+
     border-radius: 50%;
+
     background: #aaa;
 }
 
 .status {
     display: flex;
+
     justify-content: center;
     align-items: center;
-    gap: 10px;
-    margin-top: 22px;
-    color: #777;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
 
-.dot {
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    background: #555;
+    gap: 10px;
+
+    margin-top: 20px;
+
+    color: #777;
+
+    font-family: monospace;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
 }
 
 .status.playing {
     color: #1ed760;
 }
 
+.dot {
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: #555;
+}
+
 .status.playing .dot {
     background: #1ed760;
-    box-shadow: 0 0 12px #1ed760;
+
+    box-shadow:
+        0 0 12px #1ed760;
 }
 
 
@@ -442,45 +522,53 @@ main {
 
 .art-gallery {
     display: grid;
+
     grid-template-columns:
-        repeat(auto-fit, minmax(230px, 1fr));
+        repeat(
+            auto-fit,
+            minmax(230px,1fr)
+        );
+
     gap: 25px;
 }
 
 .art-card {
     background: #111;
-    border: 1px solid rgba(255,255,255,.08);
+
+    border: 1px solid #222;
+
     border-radius: 18px;
+
     overflow: hidden;
-    transition:
-        transform .3s,
-        box-shadow .3s;
+
+    transition: .3s;
 }
 
 .art-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 50px rgba(0,0,0,.6);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.6);
 }
 
 .art-image {
-    width: 100%;
-    aspect-ratio: 4 / 5;
-    background: linear-gradient(135deg,#272727,#090909);
+    aspect-ratio: 4/5;
+
     display: flex;
+
     align-items: center;
     justify-content: center;
-    overflow: hidden;
-}
 
-.art-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+    background:
+        linear-gradient(
+            135deg,
+            #292929,
+            #080808
+        );
 
-.art-placeholder {
+    font-size: 55px;
+
     color: #555;
-    font-size: 50px;
 }
 
 .art-info {
@@ -492,8 +580,10 @@ main {
 }
 
 .art-info p {
-    color: #777;
     margin-top: 6px;
+
+    color: #777;
+
     font-size: 13px;
 }
 
@@ -504,45 +594,57 @@ main {
 
 .book-grid {
     display: grid;
+
     grid-template-columns:
-        repeat(auto-fit, minmax(210px, 1fr));
+        repeat(
+            auto-fit,
+            minmax(210px,1fr)
+        );
+
     gap: 25px;
 }
 
 .book {
     background: #111;
-    border: 1px solid rgba(255,255,255,.08);
+
+    border: 1px solid #222;
+
     border-radius: 18px;
+
     padding: 15px;
-    transition:
-        transform .3s,
-        box-shadow .3s;
+
+    transition: .3s;
 }
 
 .book:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 50px rgba(0,0,0,.6);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.6);
 }
 
 .book-cover {
     width: 100%;
-    aspect-ratio: 2 / 3;
-    border-radius: 10px;
-    background: linear-gradient(145deg,#292929,#0b0b0b);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
-    color: #777;
-    font-size: 40px;
-    overflow: hidden;
-}
 
-.book-cover img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    aspect-ratio: 2/3;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #292929,
+            #090909
+        );
+
+    font-size: 45px;
+
+    color: #555;
 }
 
 .book-info {
@@ -555,41 +657,45 @@ main {
 
 .book-info p {
     margin-top: 6px;
+
     color: #777;
+
     font-size: 13px;
 }
 
 .book-button {
     display: block;
-    width: 100%;
-    margin-top: 15px;
-    padding: 10px;
-    border: none;
-    border-radius: 9px;
-    background: #222;
-    color: white;
-    text-decoration: none;
-    text-align: center;
-    font-size: 12px;
-    transition: .2s;
-}
 
-.book-button:hover {
-    background: white;
-    color: black;
+    margin-top: 15px;
+
+    padding: 10px;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    background: #222;
+
+    color: white;
+
+    border-radius: 9px;
+
+    font-size: 12px;
 }
 
 
 /* =====================================================
-   SECRET ARCHIVE
+   SECRET TERMINAL
 ===================================================== */
 
 .code-terminal {
     width: 100%;
+
     max-width: 850px;
+
     margin: 50px auto;
 
-    background: #050505;
+    background: #030303;
 
     border: 1px solid #292929;
 
@@ -597,7 +703,8 @@ main {
 
     overflow: hidden;
 
-    box-shadow: 0 30px 80px rgba(0,0,0,.7);
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.8);
 }
 
 .terminal-header {
@@ -607,51 +714,60 @@ main {
 
     display: flex;
 
-    align-items: center;
-
     justify-content: space-between;
+
+    align-items: center;
 
     background: #151515;
 
     border-bottom: 1px solid #292929;
 
-    font-family: "Courier New", monospace;
+    color: #777;
+
+    font-family: monospace;
 
     font-size: 11px;
-
-    color: #777;
 
     letter-spacing: 1px;
 }
 
 .terminal-body {
-    min-height: 430px;
+    min-height: 440px;
 
     padding: 30px;
 
     font-family: "Courier New", monospace;
 
-    font-size: 13px;
-
     background:
         radial-gradient(
             circle at center,
             #101010,
-            #030303
+            #020202
         );
+
+    position: relative;
 }
 
 .terminal-line {
     color: #666;
+
     line-height: 1.8;
+}
+
+#terminalTyping {
+    color: #aaa;
+
+    min-height: 25px;
 }
 
 .input-line {
     display: flex;
+
     align-items: center;
+
     gap: 10px;
 
-    margin-top: 8px;
+    margin-top: 15px;
 
     color: #ddd;
 }
@@ -665,13 +781,13 @@ main {
 
     outline: none;
 
-    color: #fff;
+    color: white;
 
-    font-family: "Courier New", monospace;
+    font-family: monospace;
 
-    font-size: 15px;
+    font-size: 16px;
 
-    letter-spacing: 2px;
+    letter-spacing: 3px;
 }
 
 .input-line input::placeholder {
@@ -681,7 +797,7 @@ main {
 .access-button {
     margin-top: 25px;
 
-    padding: 11px 18px;
+    padding: 11px 20px;
 
     background: #111;
 
@@ -691,7 +807,7 @@ main {
 
     border-radius: 6px;
 
-    font-family: "Courier New", monospace;
+    font-family: monospace;
 
     font-size: 11px;
 
@@ -701,30 +817,36 @@ main {
 }
 
 .access-button:hover {
-    background: #ddd;
-    color: #000;
-    border-color: #ddd;
+    background: white;
+
+    color: black;
 }
 
 .code-message {
     min-height: 25px;
+
     margin-top: 25px;
-    color: #777;
+
     font-size: 11px;
+
+    letter-spacing: 1px;
 }
 
 .code-message.error {
-    color: #b66;
+    color: #c56b6b;
 }
 
 .code-message.success {
     color: #79ff79;
+
+    text-shadow:
+        0 0 8px rgba(121,255,121,.4);
 }
 
 .secret-result {
     display: none;
 
-    margin-top: 30px;
+    margin-top: 25px;
 
     padding: 30px;
 
@@ -734,7 +856,7 @@ main {
         linear-gradient(
             135deg,
             #111,
-            #070707
+            #060606
         );
 
     color: #ddd;
@@ -747,23 +869,56 @@ main {
 
     font-style: italic;
 
-    animation: revealCode .7s ease;
+    position: relative;
+
+    overflow: hidden;
 }
 
 .secret-result.visible {
     display: block;
+
+    animation:
+        revealSecret .8s ease;
 }
 
-@keyframes revealCode {
+@keyframes revealSecret {
+
+    0% {
+        opacity: 0;
+        transform: translateY(15px);
+        filter: blur(8px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+
+}
+
+.scanline {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    height: 2px;
+
+    background: rgba(255,255,255,.15);
+
+    animation:
+        scan 1.5s linear infinite;
+}
+
+@keyframes scan {
 
     from {
-        opacity: 0;
-        transform: translateY(10px);
+        top: 0;
     }
 
     to {
-        opacity: 1;
-        transform: translateY(0);
+        top: 100%;
     }
 
 }
@@ -776,19 +931,20 @@ main {
 @media(max-width:850px) {
 
     .navbar {
-        padding: 15px;
         flex-direction: column;
+
         gap: 12px;
+
+        padding: 15px;
     }
 
     .nav-buttons {
         width: 100%;
-        justify-content: center;
     }
 
     .nav-btn {
         flex: 1;
-        padding: 9px 6px;
+        padding: 9px 5px;
     }
 
     .spotify-layout {
@@ -800,16 +956,18 @@ main {
     }
 
     #boot-screen {
-        padding: 18px;
+        padding: 15px;
     }
 
     #boot-code {
-        font-size: 10px;
+        font-size: 9px;
     }
 
 }
+
 </style>
 </head>
+
 
 <body>
 
@@ -832,7 +990,9 @@ main {
 
     </div>
 
+
     <div id="boot-code"></div>
+
 
     <div class="boot-bottom">
 
@@ -850,6 +1010,7 @@ main {
         </div>
 
     </div>
+
 
     <div id="ready">
 
@@ -871,7 +1032,7 @@ main {
 
 
 <!-- =====================================================
-     NAVIGATION
+     NAVBAR
 ===================================================== -->
 
 <nav class="navbar">
@@ -880,32 +1041,33 @@ main {
         MEDIA ROOM
     </div>
 
+
     <div class="nav-buttons">
 
         <button
             class="nav-btn active"
-            onclick="showSection('music', this)"
+            onclick="showSection('music',this)"
         >
             🎵 Music
         </button>
 
         <button
             class="nav-btn"
-            onclick="showSection('art', this)"
+            onclick="showSection('art',this)"
         >
             🎨 Art
         </button>
 
         <button
             class="nav-btn"
-            onclick="showSection('books', this)"
+            onclick="showSection('books',this)"
         >
             📚 Books
         </button>
 
         <button
             class="nav-btn"
-            onclick="showSection('codes', this)"
+            onclick="showSection('codes',this)"
         >
             🔐 Codes
         </button>
@@ -929,9 +1091,7 @@ main {
 
     <div class="section-header">
 
-        <h1>
-            Music
-        </h1>
+        <h1>Music</h1>
 
         <p>
             Spotify & vinyl player.
@@ -939,13 +1099,16 @@ main {
 
     </div>
 
+
     <div class="spotify-layout">
+
 
         <div class="spotify-window">
 
             <div id="spotify-player"></div>
 
         </div>
+
 
         <div>
 
@@ -957,10 +1120,12 @@ main {
                 >
 
                     <div class="label">
+
                         <span>
                             MY<br>
                             RECORD
                         </span>
+
                     </div>
 
                     <div class="hole"></div>
@@ -971,6 +1136,7 @@ main {
 
             </div>
 
+
             <div
                 class="status"
                 id="status"
@@ -979,7 +1145,7 @@ main {
                 <div class="dot"></div>
 
                 <span id="statusText">
-                    Paused
+                    PAUSED
                 </span>
 
             </div>
@@ -1002,9 +1168,7 @@ main {
 
     <div class="section-header">
 
-        <h1>
-            Art
-        </h1>
+        <h1>Art</h1>
 
         <p>
             A small personal gallery.
@@ -1012,17 +1176,20 @@ main {
 
     </div>
 
+
     <div class="art-gallery">
 
         <article class="art-card">
 
             <div class="art-image">
-                <div class="art-placeholder">🎨</div>
+                🎨
             </div>
 
             <div class="art-info">
 
-                <h2>Painting I</h2>
+                <h2>
+                    Painting I
+                </h2>
 
                 <p>
                     Add your artwork here.
@@ -1036,12 +1203,14 @@ main {
         <article class="art-card">
 
             <div class="art-image">
-                <div class="art-placeholder">🖼️</div>
+                🖼️
             </div>
 
             <div class="art-info">
 
-                <h2>Painting II</h2>
+                <h2>
+                    Painting II
+                </h2>
 
                 <p>
                     Another piece of art.
@@ -1055,12 +1224,14 @@ main {
         <article class="art-card">
 
             <div class="art-image">
-                <div class="art-placeholder">🖌️</div>
+                🖌️
             </div>
 
             <div class="art-info">
 
-                <h2>Painting III</h2>
+                <h2>
+                    Painting III
+                </h2>
 
                 <p>
                     Your description here.
@@ -1074,12 +1245,14 @@ main {
         <article class="art-card">
 
             <div class="art-image">
-                <div class="art-placeholder">✏️</div>
+                ✏️
             </div>
 
             <div class="art-info">
 
-                <h2>Drawing</h2>
+                <h2>
+                    Drawing
+                </h2>
 
                 <p>
                     Add another artwork.
@@ -1105,15 +1278,14 @@ main {
 
     <div class="section-header">
 
-        <h1>
-            Library
-        </h1>
+        <h1>Library</h1>
 
         <p>
             Books, stories and things worth reading.
         </p>
 
     </div>
+
 
     <div class="book-grid">
 
@@ -1280,11 +1452,9 @@ main {
                 CONNECTION: SECURE
             </div>
 
-            <br>
-
-            <div class="terminal-line">
-                ENTER ACCESS CODE:
-            </div>
+            <div
+                id="terminalTyping"
+            ></div>
 
 
             <div class="input-line">
@@ -1293,11 +1463,14 @@ main {
 
                 <input
                     id="codeInput"
-                    type="text"
+                    type="password"
                     autocomplete="off"
                     spellcheck="false"
-                    placeholder="TYPE CODE..."
-                    onkeydown="if(event.key === 'Enter') checkCode()"
+                    placeholder="ENTER ACCESS CODE"
+                    onkeydown="
+                        if(event.key === 'Enter')
+                        checkCode()
+                    "
                 >
 
             </div>
@@ -1334,228 +1507,207 @@ main {
 
 <script>
 
-
 /* =====================================================
-   BOOT CODE
+   BOOT
 ===================================================== */
 
 const bootCode =
-    document.getElementById("boot-code");
+    document.getElementById(
+        "boot-code"
+    );
 
 const progress =
-    document.getElementById("progress");
+    document.getElementById(
+        "progress"
+    );
 
 const bootStatus =
-    document.getElementById("boot-status");
+    document.getElementById(
+        "boot-status"
+    );
 
 const bootScreen =
-    document.getElementById("boot-screen");
+    document.getElementById(
+        "boot-screen"
+    );
 
 const ready =
-    document.getElementById("ready");
+    document.getElementById(
+        "ready"
+    );
 
 
-const codeFragments = [
+const bootLines = [
 
-    "USER DATABASE .......... FOUND",
-    "USER RECOGNIZED ......... YES",
-    "CREATOR PROFILE ........ LOADED",
-    "PERSONAL MEDIA ......... FOUND",
-    "SYSTEM_INIT",
-    "MEMORY CHECK ........ OK",
+    "USER DATABASE ........ FOUND",
+    "USER RECOGNIZED ....... YES",
+    "CREATOR PROFILE ....... LOADED",
+    "MEMORY CHECK .......... OK",
     "CPU INITIALIZATION",
-    "GRAPHICS DRIVER ..... OK",
-    "AUDIO ENGINE ........ OK",
-
-    "ANALYZING AUDIO FILES",
+    "GRAPHICS DRIVER ....... OK",
+    "AUDIO ENGINE .......... OK",
     "SCANNING MUSIC LIBRARY",
-    "DETECTING ALBUMS",
     "INDEXING PLAYLISTS",
     "VINYL EMULATION ....... OK",
     "TURNTABLE MOTOR ....... READY",
-    "FREQUENCY ANALYSIS .... OK",
     "SOUND ARCHIVE ......... MOUNTED",
     "REFERENCE: VINYL",
     "REFERENCE: CASSETTE",
     "REFERENCE: RADIO",
     "REFERENCE: RECORD",
-    "DAFT PUNK ARCHIVE ...... FOUND",
-    "PINK FLOYD INDEX ....... FOUND",
-    "NIRVANA RECORDS ........ FOUND",
-    "TWENTY ONE PILOTS ...... FOUND",
-
     "ART ENGINE ............ OK",
     "SCANNING ART ARCHIVE",
     "ANALYZING PAINTINGS",
-    "CANVAS DATABASE ........ OK",
-    "COLOR PALETTE .......... LOADED",
-    "VISUAL ARCHIVE ......... MOUNTED",
-    "GALLERY SYSTEM ......... READY",
+    "CANVAS DATABASE ....... OK",
+    "COLOR PALETTE ......... LOADED",
+    "GALLERY SYSTEM ........ READY",
     "REFERENCE: PAINTING",
     "REFERENCE: CANVAS",
     "REFERENCE: INK",
     "REFERENCE: PHOTOGRAPHY",
-    "REFERENCE: FILM",
-
-    "LITERATURE ENGINE ...... OK",
+    "LITERATURE ENGINE ..... OK",
     "SCANNING BOOK ARCHIVE",
     "INDEXING AUTHORS",
     "INDEXING STORIES",
-    "TEXT DATABASE .......... READY",
-    "LIBRARY CATALOG ........ OK",
-    "READING MODULE ......... READY",
+    "LIBRARY CATALOG ....... OK",
+    "READING MODULE ........ READY",
     "REFERENCE: BOOK",
     "REFERENCE: POETRY",
     "REFERENCE: PROSE",
     "REFERENCE: NOVEL",
-    "REFERENCE: SHORT STORY",
-
     "CODE ARCHIVE .......... FOUND",
-    "ENCRYPTED ENTRIES ...... FOUND",
-    "CLASSIFIED DATA ........ LOADED",
-    "CODE DATABASE .......... READY",
-    "ARCHIVE INTEGRITY ...... OK",
-
-    "MEDIA ROOM CORE ........ OK",
-    "MUSIC MODULE ........... READY",
-    "ART MODULE ............. READY",
-    "LITERATURE MODULE ...... READY",
-    "ALL MEDIA SYSTEMS ...... NOMINAL"
+    "ENCRYPTED ENTRIES ..... FOUND",
+    "CLASSIFIED DATA ....... LOADED",
+    "CODE DATABASE ......... READY",
+    "MEDIA ROOM CORE ....... OK",
+    "ALL SYSTEMS ........... NOMINAL"
 ];
 
 
-function addCodeLine() {
+let bootInterval =
+    setInterval(() => {
 
-    const line =
-        document.createElement("div");
+        const line =
+            document.createElement(
+                "div"
+            );
 
-    const random =
-        codeFragments[
-            Math.floor(
-                Math.random() *
-                codeFragments.length
-            )
-        ];
+        const random =
+            bootLines[
+                Math.floor(
+                    Math.random() *
+                    bootLines.length
+                )
+            ];
 
-    const number =
-        Math.floor(
-            Math.random() *
-            0xFFFFFF
-        )
-        .toString(16)
-        .toUpperCase();
+        line.className =
+            "code-line";
 
-    let className = "code-white";
+        line.innerHTML =
+            `<span class="code-gray">
+                0x${Math.floor(
+                    Math.random() *
+                    999999
+                )}
+            </span>
+            &nbsp;
+            <span class="${
+                random.includes("FOUND")
+                ? "code-green"
+                : "code-white"
+            }">
+                ${random}
+            </span>`;
 
-    if (random.includes("FOUND")) {
-        className = "code-green";
-    }
+        bootCode.appendChild(line);
 
-    if (random.includes("REFERENCE")) {
-        className = "code-blue";
-    }
+        if (
+            bootCode.children.length > 45
+        ) {
+            bootCode.removeChild(
+                bootCode.firstChild
+            );
+        }
 
-    line.className = "code-line";
-
-    line.innerHTML =
-        `<span class="code-gray">
-            0x${number}
-        </span>
-        &nbsp;
-        <span class="${className}">
-            ${random}
-        </span>`;
-
-    bootCode.appendChild(line);
-
-    if (bootCode.children.length > 45) {
-        bootCode.removeChild(
-            bootCode.firstChild
-        );
-    }
-}
+    }, 40);
 
 
-let codeInterval =
-    setInterval(
-        addCodeLine,
-        42
-    );
+let percentage = 0;
 
-
-/* =====================================================
-   BOOT PROGRESS
-===================================================== */
-
-let percent = 0;
 
 const progressInterval =
     setInterval(() => {
 
-        percent +=
-            Math.random() * 2.8;
+        percentage +=
+            Math.random() * 2.5;
 
-        if (percent >= 100) {
 
-            percent = 100;
+        if (percentage >= 100) {
+
+            percentage = 100;
 
             clearInterval(
                 progressInterval
             );
 
             clearInterval(
-                codeInterval
+                bootInterval
             );
 
             bootStatus.textContent =
                 "SYSTEM READY";
 
-            setTimeout(() => {
-
-                ready.style.opacity = "1";
-
-            }, 250);
-
 
             setTimeout(() => {
 
-                bootScreen.style.opacity = "0";
+                ready.style.opacity =
+                    "1";
+
+            }, 200);
+
+
+            setTimeout(() => {
+
+                bootScreen.style.opacity =
+                    "0";
 
                 bootScreen.style.visibility =
                     "hidden";
 
-            }, 1500);
+            }, 1400);
+
         }
 
 
         progress.style.width =
-            percent + "%";
+            percentage + "%";
 
 
-        if (percent < 20) {
+        if (percentage < 25) {
 
             bootStatus.textContent =
                 "Initializing hardware...";
 
-        } else if (percent < 40) {
+        } else if (
+            percentage < 50
+        ) {
 
             bootStatus.textContent =
                 "Loading system drivers...";
 
-        } else if (percent < 60) {
+        } else if (
+            percentage < 70
+        ) {
 
             bootStatus.textContent =
                 "Mounting media devices...";
 
-        } else if (percent < 80) {
+        } else if (
+            percentage < 90
+        ) {
 
             bootStatus.textContent =
-                "Loading Music / Art / Literature...";
-
-        } else if (percent < 95) {
-
-            bootStatus.textContent =
-                "Loading classified archive...";
+                "Loading media archive...";
 
         } else {
 
@@ -1576,33 +1728,24 @@ function showSection(
     button
 ) {
 
-    const sections =
-        document.querySelectorAll(
-            ".section"
+    document
+        .querySelectorAll(".section")
+        .forEach(
+            section =>
+                section.classList.remove(
+                    "active"
+                )
         );
 
-    const buttons =
-        document.querySelectorAll(
-            ".nav-btn"
+
+    document
+        .querySelectorAll(".nav-btn")
+        .forEach(
+            btn =>
+                btn.classList.remove(
+                    "active"
+                )
         );
-
-
-    sections.forEach(section => {
-
-        section.classList.remove(
-            "active"
-        );
-
-    });
-
-
-    buttons.forEach(btn => {
-
-        btn.classList.remove(
-            "active"
-        );
-
-    });
 
 
     document
@@ -1615,48 +1758,64 @@ function showSection(
 
 
 /* =====================================================
-   SPOTIFY + VINYL
+   VINYL
 ===================================================== */
 
-const playlistURL =
-    "https://open.spotify.com/playlist/0aFukFImzZqlBhQzskT2T3";
-
-
 const vinyl =
-    document.getElementById("vinyl");
+    document.getElementById(
+        "vinyl"
+    );
 
 const status =
-    document.getElementById("status");
+    document.getElementById(
+        "status"
+    );
 
 const statusText =
-    document.getElementById("statusText");
+    document.getElementById(
+        "statusText"
+    );
 
 
 function startVinyl() {
 
-    vinyl.classList.add("playing");
+    vinyl.classList.add(
+        "playing"
+    );
 
-    status.classList.add("playing");
+    status.classList.add(
+        "playing"
+    );
 
     statusText.textContent =
-        "Playing";
+        "PLAYING";
+
 }
 
 
 function stopVinyl() {
 
-    vinyl.classList.remove("playing");
+    vinyl.classList.remove(
+        "playing"
+    );
 
-    status.classList.remove("playing");
+    status.classList.remove(
+        "playing"
+    );
 
     statusText.textContent =
-        "Paused";
+        "PAUSED";
+
 }
 
 
 /* =====================================================
-   SPOTIFY IFRAME API
+   SPOTIFY
 ===================================================== */
+
+const playlistURL =
+    "https://open.spotify.com/playlist/0aFukFImzZqlBhQzskT2T3";
+
 
 window.onSpotifyIframeApiReady =
     (IFrameAPI) => {
@@ -1667,20 +1826,16 @@ window.onSpotifyIframeApiReady =
             );
 
 
-        const options = {
-
-            width: "100%",
-
-            height: "600",
-
-            url: playlistURL
-
-        };
-
-
         IFrameAPI.createController(
+
             element,
-            options,
+
+            {
+                width: "100%",
+                height: "600",
+                url: playlistURL
+            },
+
             (EmbedController) => {
 
                 EmbedController.addListener(
@@ -1693,14 +1848,12 @@ window.onSpotifyIframeApiReady =
 
                 EmbedController.addListener(
                     "playback_update",
-                    (event) => {
+                    event => {
 
                         if (
                             !event ||
                             !event.data
-                        ) {
-                            return;
-                        }
+                        ) return;
 
 
                         if (
@@ -1725,11 +1878,58 @@ window.onSpotifyIframeApiReady =
 
 
 /* =====================================================
-   SECRET CODE DATABASE
-   =====================================================
+   TERMINAL TYPING EFFECT
+===================================================== */
 
-   The codes are intentionally NOT displayed
+const terminalTyping =
+    document.getElementById(
+        "terminalTyping"
+    );
+
+
+const terminalText =
+    "AWAITING AUTHENTICATION...";
+
+
+let typingIndex = 0;
+
+
+function typeTerminalText() {
+
+    if (
+        typingIndex <
+        terminalText.length
+    ) {
+
+        terminalTyping.textContent +=
+            terminalText[
+                typingIndex
+            ];
+
+        typingIndex++;
+
+        setTimeout(
+            typeTerminalText,
+            45
+        );
+
+    }
+
+}
+
+
+typeTerminalText();
+
+
+/* =====================================================
+   SECRET CODE DATABASE
+=====================================================
+
+   IMPORTANT:
+
+   These codes are NOT displayed
    anywhere in the interface.
+
 ===================================================== */
 
 const secretCodes = {
@@ -1787,24 +1987,35 @@ function checkCode() {
         input.value.trim();
 
 
+    /* Remove previous answer */
+
     result.classList.remove(
         "visible"
     );
 
+    result.innerHTML = "";
+
+
+    /* Empty */
 
     if (!code) {
 
         message.textContent =
-            "ERROR: NO CODE ENTERED.";
+            "ERROR // NO INPUT";
 
         message.className =
             "code-message error";
 
         return;
+
     }
 
 
-    if (secretCodes[code]) {
+    /* Correct */
+
+    if (
+        secretCodes[code]
+    ) {
 
         message.textContent =
             "ACCESS GRANTED // ARCHIVE DECRYPTED";
@@ -1813,10 +2024,12 @@ function checkCode() {
             "code-message success";
 
 
-        result.textContent =
-            '"' +
-            secretCodes[code] +
-            '"';
+        /* Create secret */
+
+        result.innerHTML = `
+            <div class="scanline"></div>
+            "${secretCodes[code]}"
+        `;
 
 
         result.classList.add(
@@ -1824,10 +2037,21 @@ function checkCode() {
         );
 
 
+        /* Clear password */
+
         input.value = "";
 
 
-    } else {
+        /* Small terminal sound */
+
+        playAccessSound();
+
+    }
+
+
+    /* Wrong */
+
+    else {
 
         message.textContent =
             "ACCESS DENIED // INVALID CODE";
@@ -1835,7 +2059,64 @@ function checkCode() {
         message.className =
             "code-message error";
 
+
+        input.select();
+
     }
+
+}
+
+
+/* =====================================================
+   TERMINAL SOUND
+===================================================== */
+
+function playAccessSound() {
+
+    try {
+
+        const audio =
+            new AudioContext();
+
+        const oscillator =
+            audio.createOscillator();
+
+        const gain =
+            audio.createGain();
+
+
+        oscillator.frequency.value =
+            880;
+
+        oscillator.type =
+            "square";
+
+
+        gain.gain.setValueAtTime(
+            .04,
+            audio.currentTime
+        );
+
+        gain.gain.exponentialRampToValueAtTime(
+            .001,
+            audio.currentTime + .15
+        );
+
+
+        oscillator.connect(gain);
+
+        gain.connect(
+            audio.destination
+        );
+
+
+        oscillator.start();
+
+        oscillator.stop(
+            audio.currentTime + .15
+        );
+
+    } catch(e) {}
 
 }
 
