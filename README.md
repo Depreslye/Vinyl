@@ -10,9 +10,9 @@
 
 <style>
 
-/* =====================================================
-   GLOBAL
-===================================================== */
+/* =========================================================
+   RESET
+========================================================= */
 
 * {
     margin: 0;
@@ -26,15 +26,15 @@ html {
 
 body {
     background: #050505;
-    color: white;
+    color: #fff;
     font-family: Arial, Helvetica, sans-serif;
     overflow-x: hidden;
 }
 
 
-/* =====================================================
-   90s COMPUTER BOOT
-===================================================== */
+/* =========================================================
+   BOOT SCREEN
+========================================================= */
 
 #boot-screen {
     position: fixed;
@@ -42,7 +42,7 @@ body {
     z-index: 99999;
 
     background: #050505;
-    color: #ccc;
+    color: #bbb;
 
     font-family: "Courier New", monospace;
 
@@ -91,15 +91,11 @@ body {
 }
 
 .code-white {
-    color: #bbb;
+    color: #aaa;
 }
 
 .code-green {
     color: #79ff79;
-}
-
-.code-blue {
-    color: #8baeff;
 }
 
 .boot-bottom {
@@ -180,14 +176,16 @@ body {
 
 #ready p {
     margin-top: 12px;
+
     color: #777;
+
     font-size: 12px;
 }
 
 
-/* =====================================================
+/* =========================================================
    NAVBAR
-===================================================== */
+========================================================= */
 
 .navbar {
     position: sticky;
@@ -197,20 +195,23 @@ body {
 
     padding: 18px 30px;
 
-    background: rgba(5,5,5,.88);
+    background: rgba(5,5,5,.9);
 
     backdrop-filter: blur(18px);
 
     border-bottom: 1px solid #181818;
 
     display: flex;
+
     justify-content: space-between;
     align-items: center;
 }
 
 .logo {
     font-size: 20px;
+
     font-weight: bold;
+
     letter-spacing: 2px;
 }
 
@@ -246,12 +247,13 @@ body {
 }
 
 
-/* =====================================================
-   SECTIONS
-===================================================== */
+/* =========================================================
+   MAIN
+========================================================= */
 
 main {
     width: min(1250px, 94%);
+
     margin: auto;
 }
 
@@ -273,19 +275,22 @@ main {
 
 .section-header h1 {
     font-size: clamp(32px, 5vw, 55px);
+
     letter-spacing: -2px;
 }
 
 .section-header p {
     margin-top: 8px;
+
     color: #777;
+
     font-size: 14px;
 }
 
 
-/* =====================================================
+/* =========================================================
    SPOTIFY
-===================================================== */
+========================================================= */
 
 .spotify-layout {
     display: grid;
@@ -317,9 +322,9 @@ main {
 }
 
 
-/* =====================================================
+/* =========================================================
    VINYL
-===================================================== */
+========================================================= */
 
 .turntable {
     width: min(480px, 90vw);
@@ -351,6 +356,7 @@ main {
 
 .vinyl {
     width: 76%;
+
     aspect-ratio: 1;
 
     position: relative;
@@ -422,7 +428,9 @@ main {
 
 .label span {
     font-size: 9px;
+
     letter-spacing: 2px;
+
     font-weight: bold;
 }
 
@@ -516,9 +524,9 @@ main {
 }
 
 
-/* =====================================================
+/* =========================================================
    ART
-===================================================== */
+========================================================= */
 
 .art-gallery {
     display: grid;
@@ -588,9 +596,9 @@ main {
 }
 
 
-/* =====================================================
+/* =========================================================
    BOOKS
-===================================================== */
+========================================================= */
 
 .book-grid {
     display: grid;
@@ -684,16 +692,16 @@ main {
 }
 
 
-/* =====================================================
-   SECRET TERMINAL
-===================================================== */
+/* =========================================================
+   QUOTE ARCHIVE
+========================================================= */
 
-.code-terminal {
+.quote-terminal {
     width: 100%;
 
     max-width: 850px;
 
-    margin: 50px auto;
+    margin: 60px auto;
 
     background: #030303;
 
@@ -715,7 +723,6 @@ main {
     display: flex;
 
     justify-content: space-between;
-
     align-items: center;
 
     background: #151515;
@@ -731,10 +738,10 @@ main {
     letter-spacing: 1px;
 }
 
-.terminal-body {
-    min-height: 440px;
+.quote-body {
+    min-height: 430px;
 
-    padding: 30px;
+    padding: 35px;
 
     font-family: "Courier New", monospace;
 
@@ -745,119 +752,74 @@ main {
             #020202
         );
 
-    position: relative;
-}
-
-.terminal-line {
-    color: #666;
-
-    line-height: 1.8;
-}
-
-#terminalTyping {
-    color: #aaa;
-
-    min-height: 25px;
-}
-
-.input-line {
     display: flex;
 
+    flex-direction: column;
+
     align-items: center;
-
-    gap: 10px;
-
-    margin-top: 15px;
-
-    color: #ddd;
 }
 
-.input-line input {
-    flex: 1;
+.terminal-text {
+    align-self: flex-start;
 
-    background: transparent;
+    color: #555;
 
-    border: none;
+    line-height: 1.8;
 
-    outline: none;
-
-    color: white;
-
-    font-family: monospace;
-
-    font-size: 16px;
-
-    letter-spacing: 3px;
+    font-size: 12px;
 }
 
-.input-line input::placeholder {
-    color: #333;
-}
+#revealButton {
+    margin-top: 70px;
 
-.access-button {
-    margin-top: 25px;
-
-    padding: 11px 20px;
+    padding: 14px 28px;
 
     background: #111;
 
     color: #aaa;
 
-    border: 1px solid #333;
+    border: 1px solid #444;
 
     border-radius: 6px;
 
     font-family: monospace;
 
-    font-size: 11px;
+    font-size: 12px;
+
+    letter-spacing: 2px;
 
     cursor: pointer;
 
-    transition: .2s;
+    transition:
+        background .2s,
+        color .2s,
+        transform .2s;
 }
 
-.access-button:hover {
+#revealButton:hover {
     background: white;
 
     color: black;
+
+    transform: translateY(-2px);
 }
 
-.code-message {
-    min-height: 25px;
-
-    margin-top: 25px;
-
-    font-size: 11px;
-
-    letter-spacing: 1px;
+#revealButton:active {
+    transform: scale(.96);
 }
 
-.code-message.error {
-    color: #c56b6b;
-}
+.quote-result {
+    width: 100%;
 
-.code-message.success {
-    color: #79ff79;
+    min-height: 100px;
 
-    text-shadow:
-        0 0 8px rgba(121,255,121,.4);
-}
-
-.secret-result {
-    display: none;
-
-    margin-top: 25px;
+    margin-top: 40px;
 
     padding: 30px;
 
-    border: 1px solid #333;
+    border: 1px solid #292929;
 
-    background:
-        linear-gradient(
-            135deg,
-            #111,
-            #060606
-        );
+    background: #080808;
 
     color: #ddd;
 
@@ -869,64 +831,27 @@ main {
 
     font-style: italic;
 
-    position: relative;
+    text-align: center;
 
-    overflow: hidden;
+    opacity: 0;
+
+    transform: translateY(15px);
+
+    transition:
+        opacity .5s ease,
+        transform .5s ease;
 }
 
-.secret-result.visible {
-    display: block;
+.quote-result.visible {
+    opacity: 1;
 
-    animation:
-        revealSecret .8s ease;
-}
-
-@keyframes revealSecret {
-
-    0% {
-        opacity: 0;
-        transform: translateY(15px);
-        filter: blur(8px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-        filter: blur(0);
-    }
-
-}
-
-.scanline {
-    position: absolute;
-
-    left: 0;
-    right: 0;
-
-    height: 2px;
-
-    background: rgba(255,255,255,.15);
-
-    animation:
-        scan 1.5s linear infinite;
-}
-
-@keyframes scan {
-
-    from {
-        top: 0;
-    }
-
-    to {
-        top: 100%;
-    }
-
+    transform: translateY(0);
 }
 
 
-/* =====================================================
+/* =========================================================
    MOBILE
-===================================================== */
+========================================================= */
 
 @media(max-width:850px) {
 
@@ -944,7 +869,10 @@ main {
 
     .nav-btn {
         flex: 1;
+
         padding: 9px 5px;
+
+        font-size: 11px;
     }
 
     .spotify-layout {
@@ -963,6 +891,14 @@ main {
         font-size: 9px;
     }
 
+    .quote-body {
+        padding: 25px 18px;
+    }
+
+    .quote-result {
+        font-size: 18px;
+    }
+
 }
 
 </style>
@@ -972,9 +908,9 @@ main {
 <body>
 
 
-<!-- =====================================================
-     BOOT SCREEN
-===================================================== -->
+<!-- =========================================================
+     BOOT
+========================================================= -->
 
 <div id="boot-screen">
 
@@ -1001,12 +937,17 @@ main {
         </div>
 
         <div class="progress-container">
+
             <div id="progress"></div>
+
         </div>
 
         <div style="margin-top:12px;">
+
             C:\MEDIA_ROOM&gt;
+
             <span class="cursor"></span>
+
         </div>
 
     </div>
@@ -1022,7 +963,7 @@ main {
             USER RECOGNIZED
         </p>
 
-        <p style="margin-top:8px;">
+        <p>
             WELCOME BACK
         </p>
 
@@ -1031,9 +972,9 @@ main {
 </div>
 
 
-<!-- =====================================================
+<!-- =========================================================
      NAVBAR
-===================================================== -->
+========================================================= -->
 
 <nav class="navbar">
 
@@ -1069,7 +1010,7 @@ main {
             class="nav-btn"
             onclick="showSection('codes',this)"
         >
-            🔐 Codes
+            ✦ Archive
         </button>
 
     </div>
@@ -1080,9 +1021,9 @@ main {
 <main>
 
 
-<!-- =====================================================
+<!-- =========================================================
      MUSIC
-===================================================== -->
+========================================================= -->
 
 <section
     id="music"
@@ -1091,7 +1032,9 @@ main {
 
     <div class="section-header">
 
-        <h1>Music</h1>
+        <h1>
+            Music
+        </h1>
 
         <p>
             Spotify & vinyl player.
@@ -1132,6 +1075,7 @@ main {
 
                 </div>
 
+
                 <div class="arm"></div>
 
             </div>
@@ -1157,9 +1101,9 @@ main {
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      ART
-===================================================== -->
+========================================================= -->
 
 <section
     id="art"
@@ -1168,7 +1112,9 @@ main {
 
     <div class="section-header">
 
-        <h1>Art</h1>
+        <h1>
+            Art
+        </h1>
 
         <p>
             A small personal gallery.
@@ -1178,6 +1124,7 @@ main {
 
 
     <div class="art-gallery">
+
 
         <article class="art-card">
 
@@ -1267,9 +1214,9 @@ main {
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      BOOKS
-===================================================== -->
+========================================================= -->
 
 <section
     id="books"
@@ -1278,7 +1225,9 @@ main {
 
     <div class="section-header">
 
-        <h1>Library</h1>
+        <h1>
+            Library
+        </h1>
 
         <p>
             Books, stories and things worth reading.
@@ -1288,6 +1237,7 @@ main {
 
 
     <div class="book-grid">
+
 
         <article class="book">
 
@@ -1405,9 +1355,9 @@ main {
 </section>
 
 
-<!-- =====================================================
-     SECRET CODES
-===================================================== -->
+<!-- =========================================================
+     ARCHIVE
+========================================================= -->
 
 <section
     id="codes"
@@ -1417,22 +1367,23 @@ main {
     <div class="section-header">
 
         <h1>
-            Restricted Archive
+            Archive
         </h1>
 
         <p>
-            Enter an access code to retrieve an archived fragment.
+            A collection of fragments.
         </p>
 
     </div>
 
 
-    <div class="code-terminal">
+    <div class="quote-terminal">
+
 
         <div class="terminal-header">
 
             <span>
-                ARCHIVE TERMINAL
+                ARCHIVE // RANDOM FRAGMENT
             </span>
 
             <span>
@@ -1442,58 +1393,36 @@ main {
         </div>
 
 
-        <div class="terminal-body">
+        <div class="quote-body">
 
-            <div class="terminal-line">
-                SYSTEM://CODE_ARCHIVE
+
+            <div class="terminal-text">
+                SYSTEM://ARCHIVE
             </div>
 
-            <div class="terminal-line">
-                CONNECTION: SECURE
+            <div class="terminal-text">
+                RANDOM ACCESS MODE: ENABLED
             </div>
 
-            <div
-                id="terminalTyping"
-            ></div>
-
-
-            <div class="input-line">
-
-                <span>&gt;</span>
-
-                <input
-                    id="codeInput"
-                    type="password"
-                    autocomplete="off"
-                    spellcheck="false"
-                    placeholder="ENTER ACCESS CODE"
-                    onkeydown="
-                        if(event.key === 'Enter')
-                        checkCode()
-                    "
-                >
-
+            <div class="terminal-text">
+                DATABASE: ONLINE
             </div>
 
 
             <button
-                class="access-button"
-                onclick="checkCode()"
+                id="revealButton"
+                onclick="revealQuote()"
             >
-                ACCESS ARCHIVE
+                REVEAL FRAGMENT
             </button>
 
 
             <div
-                id="codeMessage"
-                class="code-message"
-            ></div>
+                id="quoteResult"
+                class="quote-result"
+            >
+            </div>
 
-
-            <div
-                id="secretResult"
-                class="secret-result"
-            ></div>
 
         </div>
 
@@ -1507,9 +1436,9 @@ main {
 
 <script>
 
-/* =====================================================
-   BOOT
-===================================================== */
+/* =========================================================
+   BOOT ANIMATION
+========================================================= */
 
 const bootCode =
     document.getElementById(
@@ -1575,12 +1504,11 @@ const bootLines = [
     "REFERENCE: POETRY",
     "REFERENCE: PROSE",
     "REFERENCE: NOVEL",
-    "CODE ARCHIVE .......... FOUND",
-    "ENCRYPTED ENTRIES ..... FOUND",
-    "CLASSIFIED DATA ....... LOADED",
-    "CODE DATABASE ......... READY",
+    "ARCHIVE ENGINE ........ FOUND",
+    "RANDOM ACCESS ......... READY",
     "MEDIA ROOM CORE ....... OK",
     "ALL SYSTEMS ........... NOMINAL"
+
 ];
 
 
@@ -1621,12 +1549,15 @@ let bootInterval =
 
         bootCode.appendChild(line);
 
+
         if (
             bootCode.children.length > 45
         ) {
+
             bootCode.removeChild(
                 bootCode.firstChild
             );
+
         }
 
     }, 40);
@@ -1688,28 +1619,30 @@ const progressInterval =
             bootStatus.textContent =
                 "Initializing hardware...";
 
-        } else if (
-            percentage < 50
-        ) {
+        }
+
+        else if (percentage < 50) {
 
             bootStatus.textContent =
                 "Loading system drivers...";
 
-        } else if (
-            percentage < 70
-        ) {
+        }
+
+        else if (percentage < 70) {
 
             bootStatus.textContent =
                 "Mounting media devices...";
 
-        } else if (
-            percentage < 90
-        ) {
+        }
+
+        else if (percentage < 90) {
 
             bootStatus.textContent =
                 "Loading media archive...";
 
-        } else {
+        }
+
+        else {
 
             bootStatus.textContent =
                 "Finalizing startup...";
@@ -1719,9 +1652,9 @@ const progressInterval =
     }, 100);
 
 
-/* =====================================================
+/* =========================================================
    NAVIGATION
-===================================================== */
+========================================================= */
 
 function showSection(
     sectionID,
@@ -1731,20 +1664,26 @@ function showSection(
     document
         .querySelectorAll(".section")
         .forEach(
-            section =>
+            section => {
+
                 section.classList.remove(
                     "active"
-                )
+                );
+
+            }
         );
 
 
     document
         .querySelectorAll(".nav-btn")
         .forEach(
-            btn =>
+            btn => {
+
                 btn.classList.remove(
                     "active"
-                )
+                );
+
+            }
         );
 
 
@@ -1754,12 +1693,13 @@ function showSection(
 
 
     button.classList.add("active");
+
 }
 
 
-/* =====================================================
+/* =========================================================
    VINYL
-===================================================== */
+========================================================= */
 
 const vinyl =
     document.getElementById(
@@ -1809,9 +1749,9 @@ function stopVinyl() {
 }
 
 
-/* =====================================================
+/* =========================================================
    SPOTIFY
-===================================================== */
+========================================================= */
 
 const playlistURL =
     "https://open.spotify.com/playlist/0aFukFImzZqlBhQzskT2T3";
@@ -1838,10 +1778,13 @@ window.onSpotifyIframeApiReady =
 
             (EmbedController) => {
 
+
                 EmbedController.addListener(
                     "playback_started",
                     () => {
+
                         startVinyl();
+
                     }
                 );
 
@@ -1862,7 +1805,9 @@ window.onSpotifyIframeApiReady =
 
                             stopVinyl();
 
-                        } else {
+                        }
+
+                        else {
 
                             startVinyl();
 
@@ -1871,252 +1816,88 @@ window.onSpotifyIframeApiReady =
                     }
                 );
 
+
             }
+
         );
 
     };
 
 
-/* =====================================================
-   TERMINAL TYPING EFFECT
-===================================================== */
+/* =========================================================
+   RANDOM QUOTES
+========================================================= */
 
-const terminalTyping =
-    document.getElementById(
-        "terminalTyping"
-    );
+const quotes = [
 
+    "I'm having a complete gay crisis.",
 
-const terminalText =
-    "AWAITING AUTHENTICATION...";
+    "Being brave doesn't mean not being afraid. Being brave means being scared, very scared, but doing what is right anyway.",
 
+    "I am justice! I am the man who will save the oppressed and become the God of a new world.",
 
-let typingIndex = 0;
+    "Do you like horror movies?",
 
+    "We all float down here.",
 
-function typeTerminalText() {
+    "He is still alive and ready to kill!",
 
-    if (
-        typingIndex <
-        terminalText.length
-    ) {
+    "You are all my children now.",
 
-        terminalTyping.textContent +=
-            terminalText[
-                typingIndex
-            ];
+    "Here's Johnny!"
 
-        typingIndex++;
-
-        setTimeout(
-            typeTerminalText,
-            45
-        );
-
-    }
-
-}
+];
 
 
-typeTerminalText();
+let lastQuote = -1;
 
 
-/* =====================================================
-   SECRET CODE DATABASE
-=====================================================
-
-   IMPORTANT:
-
-   These codes are NOT displayed
-   anywhere in the interface.
-
-===================================================== */
-
-const secretCodes = {
-
-    "01092018":
-        "I'm having a complete gay crisis.",
-
-    "2002":
-        "Being brave doesn't mean not being afraid. Being brave means being scared, very scared, but doing what is right anyway.",
-
-    "2003":
-        "I am justice! I am the man who will save the oppressed and become the God of a new world.",
-
-    "1996":
-        "Do you like horror movies?",
-
-    "1986":
-        "We all float down here.",
-
-    "1978":
-        "He is still alive and ready to kill!",
-
-    "1984":
-        "You are all my children now.",
-
-    "1980":
-        "Here's Johnny!"
-
-};
-
-
-/* =====================================================
-   CODE CHECKER
-===================================================== */
-
-function checkCode() {
-
-    const input =
-        document.getElementById(
-            "codeInput"
-        );
-
-    const message =
-        document.getElementById(
-            "codeMessage"
-        );
+function revealQuote() {
 
     const result =
         document.getElementById(
-            "secretResult"
+            "quoteResult"
         );
 
 
-    const code =
-        input.value.trim();
+    let randomIndex;
 
 
-    /* Remove previous answer */
+    do {
+
+        randomIndex =
+            Math.floor(
+                Math.random() *
+                quotes.length
+            );
+
+    }
+
+    while (
+        randomIndex === lastQuote &&
+        quotes.length > 1
+    );
+
+
+    lastQuote =
+        randomIndex;
+
 
     result.classList.remove(
         "visible"
     );
 
-    result.innerHTML = "";
 
+    setTimeout(() => {
 
-    /* Empty */
-
-    if (!code) {
-
-        message.textContent =
-            "ERROR // NO INPUT";
-
-        message.className =
-            "code-message error";
-
-        return;
-
-    }
-
-
-    /* Correct */
-
-    if (
-        secretCodes[code]
-    ) {
-
-        message.textContent =
-            "ACCESS GRANTED // ARCHIVE DECRYPTED";
-
-        message.className =
-            "code-message success";
-
-
-        /* Create secret */
-
-        result.innerHTML = `
-            <div class="scanline"></div>
-            "${secretCodes[code]}"
-        `;
-
+        result.textContent =
+            `"${quotes[randomIndex]}"`;
 
         result.classList.add(
             "visible"
         );
 
-
-        /* Clear password */
-
-        input.value = "";
-
-
-        /* Small terminal sound */
-
-        playAccessSound();
-
-    }
-
-
-    /* Wrong */
-
-    else {
-
-        message.textContent =
-            "ACCESS DENIED // INVALID CODE";
-
-        message.className =
-            "code-message error";
-
-
-        input.select();
-
-    }
-
-}
-
-
-/* =====================================================
-   TERMINAL SOUND
-===================================================== */
-
-function playAccessSound() {
-
-    try {
-
-        const audio =
-            new AudioContext();
-
-        const oscillator =
-            audio.createOscillator();
-
-        const gain =
-            audio.createGain();
-
-
-        oscillator.frequency.value =
-            880;
-
-        oscillator.type =
-            "square";
-
-
-        gain.gain.setValueAtTime(
-            .04,
-            audio.currentTime
-        );
-
-        gain.gain.exponentialRampToValueAtTime(
-            .001,
-            audio.currentTime + .15
-        );
-
-
-        oscillator.connect(gain);
-
-        gain.connect(
-            audio.destination
-        );
-
-
-        oscillator.start();
-
-        oscillator.stop(
-            audio.currentTime + .15
-        );
-
-    } catch(e) {}
+    }, 250);
 
 }
 
