@@ -6,8 +6,10 @@
 
 <title>Spotify Vinyl</title>
 
-<style>
+<!-- Spotify iFrame API -->
+<script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
 
+<style>
 * {
     margin: 0;
     padding: 0;
@@ -15,165 +17,104 @@
 }
 
 body {
-
     min-height: 100vh;
 
     background:
-        radial-gradient(
-            circle at 20% 20%,
-            #292929,
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at 80% 80%,
-            #171717,
-            transparent 40%
-        ),
+        radial-gradient(circle at 20% 20%, #292929, transparent 35%),
+        radial-gradient(circle at 80% 80%, #151515, transparent 40%),
         #050505;
 
     color: white;
 
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 
     display: flex;
-
     justify-content: center;
-
     align-items: center;
 
     padding: 25px;
-
 }
 
-
-/* =====================================
-   MAIN
-===================================== */
+/* =========================
+   CONTENEDOR
+========================= */
 
 .container {
-
     width: min(1200px, 100%);
 
     min-height: 680px;
 
     display: grid;
-
-    grid-template-columns:
-        1fr
-        1fr;
+    grid-template-columns: 1fr 1fr;
 
     gap: 35px;
 
     padding: 30px;
 
-    background:
-        rgba(18,18,18,.94);
+    background: rgba(18,18,18,.94);
 
-    border:
-        1px solid
-        rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.08);
 
     border-radius: 25px;
 
     box-shadow:
-        0 30px 80px
-        rgba(0,0,0,.75);
-
+        0 30px 80px rgba(0,0,0,.75),
+        inset 0 0 40px rgba(255,255,255,.02);
 }
 
-
-/* =====================================
+/* =========================
    SPOTIFY
-===================================== */
+========================= */
 
 .spotify {
-
     display: flex;
-
     flex-direction: column;
-
     justify-content: center;
-
 }
-
 
 .header {
-
     margin-bottom: 18px;
-
 }
-
 
 .header h1 {
-
     font-size: 30px;
-
+    letter-spacing: -1px;
 }
-
 
 .header p {
-
-    color: #888;
-
     margin-top: 6px;
-
+    color: #888;
     font-size: 14px;
-
 }
 
+/*
+   IMPORTANTE:
+   Este DIV será reemplazado
+   automáticamente por Spotify.
+*/
 
-.spotify-window {
-
+#spotify-player {
     width: 100%;
-
-    height: 600px;
+    min-height: 600px;
 
     border-radius: 18px;
 
     overflow: hidden;
-
-    background: #121212;
-
 }
 
-
-.spotify-window iframe {
-
-    width: 100%;
-
-    height: 100%;
-
-    border: none;
-
-}
-
-
-/* =====================================
-   VINYL AREA
-===================================== */
+/* =========================
+   VINILO
+========================= */
 
 .vinyl-area {
-
     display: flex;
-
     flex-direction: column;
 
     justify-content: center;
-
     align-items: center;
-
 }
 
-
-/* =====================================
-   TURNTABLE
-===================================== */
-
 .turntable {
-
     width: min(450px, 80vw);
 
     aspect-ratio: 1;
@@ -181,9 +122,7 @@ body {
     position: relative;
 
     display: flex;
-
     justify-content: center;
-
     align-items: center;
 
     border-radius: 30px;
@@ -191,106 +130,81 @@ body {
     background:
         linear-gradient(
             145deg,
-            #1c1c1c,
+            #1d1d1d,
             #080808
         );
 
     box-shadow:
-        0 25px 60px
-        rgba(0,0,0,.75),
-
-        inset 0 0 40px
-        rgba(0,0,0,.8);
-
+        0 25px 60px rgba(0,0,0,.75),
+        inset 0 0 40px rgba(0,0,0,.8);
 }
 
-
-/* =====================================
-   VINYL
-===================================== */
+/* =========================
+   DISCO
+========================= */
 
 .vinyl {
-
     width: 78%;
-
     aspect-ratio: 1;
 
     position: relative;
 
     border-radius: 50%;
 
-    cursor: pointer;
-
     background:
-
         repeating-radial-gradient(
             circle,
             #030303 0px,
             #111 2px,
             #050505 4px,
-            #0c0c0c 6px
+            #0b0b0b 6px
         );
 
     box-shadow:
-
-        0 20px 40px
-        rgba(0,0,0,.85),
-
-        inset 0 0 30px
-        rgba(255,255,255,.05);
+        0 20px 40px rgba(0,0,0,.85),
+        inset 0 0 30px rgba(255,255,255,.05);
 
     /*
-       IMPORTANTE:
-       La animación siempre existe.
+       AQUÍ ESTÁ LA ANIMACIÓN
     */
 
     animation:
-        vinylSpin
-        3.5s
-        linear
-        infinite;
+        spin 4s linear infinite;
 
+    animation-play-state: paused;
+
+    transition:
+        filter .3s ease;
 }
 
+/* GIRANDO */
 
-/* =====================================
+.vinyl.playing {
+    animation-play-state: running;
+
+    filter:
+        brightness(1.08);
+}
+
+/* =========================
    ANIMACIÓN
-===================================== */
+========================= */
 
-@keyframes vinylSpin {
+@keyframes spin {
 
     from {
-
-        transform:
-            rotate(0deg);
-
+        transform: rotate(0deg);
     }
 
     to {
-
-        transform:
-            rotate(360deg);
-
+        transform: rotate(360deg);
     }
 
 }
 
-
-/* =====================================
-   PAUSAR VINILO
-===================================== */
-
-.vinyl.paused {
-
-    animation-play-state:
-        paused;
-
-}
-
-
-/* =====================================
+/* =========================
    REFLEJO
-===================================== */
+========================= */
 
 .vinyl::before {
 
@@ -303,7 +217,6 @@ body {
     border-radius: 50%;
 
     background:
-
         linear-gradient(
             135deg,
             rgba(255,255,255,.10),
@@ -313,24 +226,20 @@ body {
         );
 
     pointer-events: none;
-
 }
 
-
-/* =====================================
+/* =========================
    LABEL
-===================================== */
+========================= */
 
 .label {
 
     position: absolute;
 
     width: 32%;
-
     aspect-ratio: 1;
 
     left: 50%;
-
     top: 50%;
 
     transform:
@@ -339,7 +248,6 @@ body {
     border-radius: 50%;
 
     background:
-
         radial-gradient(
             circle,
             #666,
@@ -348,19 +256,18 @@ body {
         );
 
     border:
-        2px solid
-        rgba(255,255,255,.12);
+        2px solid rgba(255,255,255,.12);
 
     display: flex;
 
     justify-content: center;
-
     align-items: center;
 
     text-align: center;
 
+    box-shadow:
+        inset 0 0 20px rgba(0,0,0,.7);
 }
-
 
 .label span {
 
@@ -371,24 +278,20 @@ body {
     letter-spacing: 2px;
 
     color: #ddd;
-
 }
 
-
-/* =====================================
+/* =========================
    CENTRO
-===================================== */
+========================= */
 
 .hole {
 
     position: absolute;
 
     width: 9px;
-
     height: 9px;
 
     left: 50%;
-
     top: 50%;
 
     transform:
@@ -398,38 +301,35 @@ body {
 
     background: #050505;
 
+    box-shadow:
+        0 0 0 2px rgba(255,255,255,.1);
 }
 
-
-/* =====================================
+/* =========================
    BRAZO
-===================================== */
+========================= */
 
 .arm {
 
     position: absolute;
 
     width: 42%;
-
     height: 8px;
 
     right: 3%;
-
     top: 16%;
 
     background: #777;
 
     border-radius: 10px;
 
-    transform:
-        rotate(25deg);
+    transform: rotate(25deg);
+
+    transform-origin: right center;
 
     box-shadow:
-        0 4px 10px
-        rgba(0,0,0,.7);
-
+        0 4px 10px rgba(0,0,0,.7);
 }
-
 
 .arm::after {
 
@@ -438,23 +338,19 @@ body {
     position: absolute;
 
     right: -4px;
-
     top: -4px;
 
     width: 16px;
-
     height: 16px;
 
     border-radius: 50%;
 
     background: #aaa;
-
 }
 
-
-/* =====================================
-   STATUS
-===================================== */
+/* =========================
+   ESTADO
+========================= */
 
 .status {
 
@@ -466,46 +362,51 @@ body {
 
     gap: 10px;
 
-    color: #1ed760;
+    color: #777;
 
     font-size: 13px;
 
     letter-spacing: 1px;
 
     text-transform: uppercase;
-
 }
-
 
 .dot {
 
     width: 9px;
-
     height: 9px;
 
     border-radius: 50%;
 
+    background: #555;
+
+    transition:
+        background .3s ease,
+        box-shadow .3s ease;
+}
+
+.status.playing {
+
+    color: #1ed760;
+}
+
+.status.playing .dot {
+
     background: #1ed760;
 
     box-shadow:
-        0 0 12px
-        #1ed760;
-
+        0 0 12px #1ed760;
 }
 
-
-/* =====================================
+/* =========================
    MOBILE
-===================================== */
+========================= */
 
 @media(max-width:850px) {
 
     body {
-
         padding: 15px;
-
     }
-
 
     .container {
 
@@ -513,22 +414,16 @@ body {
 
         padding: 20px;
 
+        gap: 30px;
     }
-
 
     .vinyl-area {
-
         order: 1;
-
     }
-
 
     .spotify {
-
         order: 2;
-
     }
-
 
     .turntable {
 
@@ -536,33 +431,30 @@ body {
             380px,
             85vw
         );
-
     }
 
+    #spotify-player {
+
+        min-height: 600px;
+    }
 }
 
 </style>
-
 </head>
-
 
 <body>
 
-
 <div class="container">
 
-
-    <!-- ==============================
+    <!-- =========================
          SPOTIFY
-    =============================== -->
+    ========================= -->
 
     <section class="spotify">
 
         <div class="header">
 
-            <h1>
-                My Spotify
-            </h1>
+            <h1>My Spotify</h1>
 
             <p>
                 Put some music on.
@@ -570,183 +462,271 @@ body {
 
         </div>
 
+        <!--
+            Spotify va a crear el reproductor aquí.
+        -->
 
-        <div class="spotify-window">
-
-            <iframe
-
-                src="
-                https://open.spotify.com/embed/playlist/0aFukFImzZqlBhQzskT2T3?utm_source=generator&theme=0
-                "
-
-                allow="
-                autoplay;
-                clipboard-write;
-                encrypted-media;
-                fullscreen;
-                picture-in-picture
-                "
-
-                loading="lazy">
-
-            </iframe>
-
-        </div>
+        <div id="spotify-player"></div>
 
     </section>
 
 
-    <!-- ==============================
+    <!-- =========================
          VINILO
-    =============================== -->
+    ========================= -->
 
     <section class="vinyl-area">
 
-
         <div class="turntable">
-
 
             <div
                 class="vinyl"
                 id="vinyl"
             >
 
-
                 <div class="label">
 
                     <span>
-
                         MY<br>
                         RECORD
-
                     </span>
 
                 </div>
 
-
                 <div class="hole"></div>
 
-
             </div>
-
 
             <div class="arm"></div>
 
         </div>
 
 
-        <div class="status">
+        <div
+            class="status"
+            id="status"
+        >
 
             <div class="dot"></div>
 
             <span id="statusText">
-
-                Playing
-
+                Paused
             </span>
 
         </div>
 
-
     </section>
-
 
 </div>
 
 
 <script>
 
+/*
+====================================================
+SPOTIFY PLAYLIST
+====================================================
+*/
+
+const playlistURL =
+    "https://open.spotify.com/playlist/0aFukFImzZqlBhQzskT2T3";
+
+
+/*
+====================================================
+ELEMENTOS
+====================================================
+*/
 
 const vinyl =
-    document.getElementById(
-        "vinyl"
-    );
+    document.getElementById("vinyl");
 
+const status =
+    document.getElementById("status");
 
 const statusText =
-    document.getElementById(
-        "statusText"
-    );
+    document.getElementById("statusText");
 
 
 /*
-=========================================
-ESTADO INICIAL
-
-El vinilo comienza girando.
-=========================================
+====================================================
+CONTROL DEL VINILO
+====================================================
 */
 
-let playing = true;
+function startVinyl() {
+
+    vinyl.classList.add("playing");
+
+    status.classList.add("playing");
+
+    statusText.textContent =
+        "Playing";
+
+}
+
+
+function stopVinyl() {
+
+    vinyl.classList.remove("playing");
+
+    status.classList.remove("playing");
+
+    statusText.textContent =
+        "Paused";
+
+}
 
 
 /*
-=========================================
-CLICK EN VINILO
-=========================================
+====================================================
+SPOTIFY IFRAME API
+====================================================
+
+Spotify llama esta función cuando
+la API está lista.
 */
 
-vinyl.addEventListener(
-    "click",
-    () => {
+window.onSpotifyIframeApiReady =
+    (IFrameAPI) => {
 
-        playing = !playing;
-
-
-        if (playing) {
-
-            vinyl.classList.remove(
-                "paused"
+        const element =
+            document.getElementById(
+                "spotify-player"
             );
 
-            statusText.textContent =
-                "Playing";
 
-        }
+        /*
+        Configuración del Embed
+        */
 
-        else {
+        const options = {
 
-            vinyl.classList.add(
-                "paused"
-            );
+            width: "100%",
 
-            statusText.textContent =
-                "Paused";
+            height: "600",
 
-        }
+            url: playlistURL
 
-    }
-);
+        };
 
 
-/*
-=========================================
-TECLA ESPACIO
-=========================================
-*/
+        /*
+        Crear reproductor
+        */
 
-document.addEventListener(
-    "keydown",
-    (event) => {
+        IFrameAPI.createController(
 
-        if (
-            event.code ===
-            "Space"
-        ) {
+            element,
 
-            event.preventDefault();
+            options,
 
-            vinyl.click();
+            (EmbedController) => {
 
-        }
 
-    }
-);
+                /*
+                ====================================
+                CUANDO COMIENZA UNA CANCIÓN
+                ====================================
+                */
 
+                EmbedController.addListener(
+
+                    "playback_started",
+
+                    () => {
+
+                        console.log(
+                            "Spotify: PLAY"
+                        );
+
+                        startVinyl();
+
+                    }
+
+                );
+
+
+                /*
+                ====================================
+                CUANDO CAMBIA PLAY/PAUSE
+                ====================================
+                */
+
+                EmbedController.addListener(
+
+                    "playback_update",
+
+                    (event) => {
+
+                        if (
+                            !event ||
+                            !event.data
+                        ) {
+                            return;
+                        }
+
+
+                        console.log(
+                            "Spotify state:",
+                            event.data
+                        );
+
+
+                        /*
+                        isPaused = true
+                        */
+
+                        if (
+                            event.data.isPaused
+                        ) {
+
+                            stopVinyl();
+
+                        }
+
+                        /*
+                        isPaused = false
+                        */
+
+                        else {
+
+                            startVinyl();
+
+                        }
+
+                    }
+
+                );
+
+
+                /*
+                ====================================
+                REPRODUCTOR LISTO
+                ====================================
+                */
+
+                EmbedController.addListener(
+
+                    "ready",
+
+                    () => {
+
+                        console.log(
+                            "Spotify Embed listo."
+                        );
+
+                    }
+
+                );
+
+            }
+
+        );
+
+    };
 
 </script>
 
-
 </body>
-
 </html>
