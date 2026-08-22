@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Media Room</title>
+<title>MEDIA ROOM</title>
 
 <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
 
@@ -26,42 +26,28 @@ html {
 
 body {
     min-height: 100vh;
-
     background: #050505;
-
     color: white;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+    font-family: Arial, Helvetica, sans-serif;
     overflow-x: hidden;
 }
 
 
 /* =====================================================
-   BOOT SCREEN
+   RETRO BOOT SCREEN
 ===================================================== */
 
 #boot-screen {
-
     position: fixed;
-
     inset: 0;
-
     z-index: 99999;
 
     background: #050505;
-
     color: #d7d7d7;
 
-    font-family:
-        "Courier New",
-        monospace;
+    font-family: "Courier New", monospace;
 
     display: flex;
-
     flex-direction: column;
 
     padding: 30px;
@@ -71,67 +57,38 @@ body {
     transition:
         opacity .8s ease,
         visibility .8s ease;
-
 }
 
-
-/* =====================================================
-   BOOT TOP
-===================================================== */
-
 .boot-top {
-
     display: flex;
-
     justify-content: space-between;
-
     align-items: center;
 
-    border-bottom:
-        1px solid #333;
+    border-bottom: 1px solid #333;
 
     padding-bottom: 12px;
-
     margin-bottom: 20px;
 
     font-size: 13px;
-
 }
-
 
 .boot-logo {
-
     font-size: 18px;
-
     font-weight: bold;
-
     letter-spacing: 2px;
-
 }
 
-
-/* =====================================================
-   CODE AREA
-===================================================== */
-
 #boot-code {
-
     flex: 1;
-
     overflow: hidden;
 
     font-size: 12px;
-
     line-height: 1.55;
 
-    color: #a9a9a9;
+    color: #aaa;
 
     opacity: .9;
-
 }
-
-
-/* diferentes líneas */
 
 .code-line {
     white-space: nowrap;
@@ -153,89 +110,53 @@ body {
     color: #8bbcff;
 }
 
-
-/* =====================================================
-   BOOT BOTTOM
-===================================================== */
+.code-yellow {
+    color: #d9d16c;
+}
 
 .boot-bottom {
-
-    border-top:
-        1px solid #333;
+    border-top: 1px solid #333;
 
     padding-top: 18px;
-
     margin-top: 15px;
-
 }
 
-
-/* =====================================================
-   PROGRESS
-===================================================== */
+#boot-status {
+    margin-top: 12px;
+    font-size: 13px;
+}
 
 .progress-container {
-
     width: 100%;
-
     height: 14px;
 
-    border:
-        1px solid #555;
+    border: 1px solid #555;
 
     margin-top: 12px;
-
     padding: 2px;
-
 }
 
-
 #progress {
-
     width: 0%;
-
     height: 100%;
 
     background: #ddd;
 
     transition:
         width .1s linear;
-
 }
-
-
-/* =====================================================
-   STATUS
-===================================================== */
-
-#boot-status {
-
-    margin-top: 12px;
-
-    font-size: 13px;
-
-}
-
-
-/* =====================================================
-   CURSOR
-===================================================== */
 
 .cursor {
-
     display: inline-block;
 
     width: 8px;
-
     height: 14px;
 
     background: #ddd;
 
-    animation:
-        blink .8s infinite;
+    animation: blink .8s infinite;
 
     vertical-align: middle;
-
 }
 
 @keyframes blink {
@@ -252,21 +173,17 @@ body {
 
 
 /* =====================================================
-   READY SCREEN
+   SYSTEM READY
 ===================================================== */
 
 #ready {
-
     position: absolute;
-
     inset: 0;
 
     background: #050505;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
     flex-direction: column;
@@ -275,29 +192,20 @@ body {
 
     pointer-events: none;
 
-    transition:
-        opacity .5s ease;
-
+    transition: opacity .5s ease;
 }
-
 
 #ready h1 {
-
     font-size: 25px;
-
     letter-spacing: 5px;
-
 }
 
-
 #ready p {
-
     margin-top: 12px;
 
     color: #777;
 
     font-size: 12px;
-
 }
 
 
@@ -306,7 +214,6 @@ body {
 ===================================================== */
 
 .navbar {
-
     position: sticky;
 
     top: 0;
@@ -315,8 +222,7 @@ body {
 
     width: 100%;
 
-    padding:
-        18px 30px;
+    padding: 18px 30px;
 
     background:
         rgba(5,5,5,.85);
@@ -333,40 +239,30 @@ body {
     align-items: center;
 
     justify-content: space-between;
-
 }
 
-
 .logo {
-
     font-size: 20px;
 
     font-weight: bold;
 
     letter-spacing: 2px;
-
 }
 
-
 .nav-buttons {
-
     display: flex;
 
     gap: 8px;
-
 }
 
-
 .nav-btn {
-
     border: none;
 
     color: #aaa;
 
     background: transparent;
 
-    padding:
-        10px 15px;
+    padding: 10px 15px;
 
     border-radius: 10px;
 
@@ -375,25 +271,18 @@ body {
     font-size: 13px;
 
     transition: .25s;
-
 }
 
-
 .nav-btn:hover {
-
     background: #1b1b1b;
 
     color: white;
-
 }
 
-
 .nav-btn.active {
-
     background: white;
 
     color: #050505;
-
 }
 
 
@@ -402,60 +291,42 @@ body {
 ===================================================== */
 
 main {
-
     width:
         min(1250px, 94%);
 
     margin: auto;
-
 }
 
-
 .section {
-
     display: none;
 
     min-height:
         calc(100vh - 75px);
 
-    padding:
-        50px 0;
-
+    padding: 50px 0;
 }
-
 
 .section.active {
-
     display: block;
-
 }
-
 
 .section-header {
-
     margin-bottom: 30px;
-
 }
 
-
 .section-header h1 {
-
     font-size:
         clamp(30px, 5vw, 52px);
 
     letter-spacing: -2px;
-
 }
 
-
 .section-header p {
-
     color: #888;
 
     margin-top: 8px;
 
     font-size: 14px;
-
 }
 
 
@@ -464,7 +335,6 @@ main {
 ===================================================== */
 
 .spotify-layout {
-
     display: grid;
 
     grid-template-columns:
@@ -473,12 +343,9 @@ main {
     gap: 35px;
 
     align-items: center;
-
 }
 
-
 .spotify-window {
-
     width: 100%;
 
     height: 600px;
@@ -492,16 +359,11 @@ main {
     box-shadow:
         0 25px 60px
         rgba(0,0,0,.65);
-
 }
 
-
 #spotify-player {
-
     width: 100%;
-
     height: 100%;
-
 }
 
 
@@ -510,7 +372,6 @@ main {
 ===================================================== */
 
 .turntable {
-
     width:
         min(480px, 90vw);
 
@@ -541,7 +402,6 @@ main {
 
         inset 0 0 40px
         rgba(0,0,0,.8);
-
 }
 
 
@@ -550,7 +410,6 @@ main {
 ===================================================== */
 
 .vinyl {
-
     width: 76%;
 
     aspect-ratio: 1;
@@ -583,17 +442,12 @@ main {
 
     animation-play-state:
         paused;
-
 }
-
 
 .vinyl.playing {
-
     animation-play-state:
         running;
-
 }
-
 
 @keyframes vinylSpin {
 
@@ -609,9 +463,7 @@ main {
 
 }
 
-
 .vinyl::before {
-
     content: "";
 
     position: absolute;
@@ -628,12 +480,14 @@ main {
             transparent 70%,
             rgba(255,255,255,.03)
         );
-
 }
 
 
-.label {
+/* =====================================================
+   VINYL LABEL
+===================================================== */
 
+.label {
     position: absolute;
 
     width: 32%;
@@ -667,27 +521,20 @@ main {
     border:
         2px solid
         rgba(255,255,255,.12);
-
 }
 
-
 .label span {
-
     font-size: 10px;
 
     font-weight: bold;
 
     letter-spacing: 2px;
-
 }
 
-
 .hole {
-
     position: absolute;
 
     width: 9px;
-
     height: 9px;
 
     left: 50%;
@@ -699,12 +546,14 @@ main {
     border-radius: 50%;
 
     background: #000;
-
 }
 
 
-.arm {
+/* =====================================================
+   TURNTABLE ARM
+===================================================== */
 
+.arm {
     position: absolute;
 
     width: 42%;
@@ -724,28 +573,22 @@ main {
 
     transform-origin:
         right center;
-
 }
 
-
 .arm::after {
-
     content: "";
 
     position: absolute;
 
     right: -5px;
-
     top: -4px;
 
     width: 16px;
-
     height: 16px;
 
     border-radius: 50%;
 
     background: #aaa;
-
 }
 
 
@@ -754,7 +597,6 @@ main {
 ===================================================== */
 
 .status {
-
     display: flex;
 
     justify-content: center;
@@ -772,38 +614,27 @@ main {
     text-transform: uppercase;
 
     letter-spacing: 2px;
-
 }
 
-
 .dot {
-
     width: 9px;
-
     height: 9px;
 
     border-radius: 50%;
 
     background: #555;
-
 }
-
 
 .status.playing {
-
     color: #1ed760;
-
 }
 
-
 .status.playing .dot {
-
     background: #1ed760;
 
     box-shadow:
         0 0 12px
         #1ed760;
-
 }
 
 
@@ -812,7 +643,6 @@ main {
 ===================================================== */
 
 .art-gallery {
-
     display: grid;
 
     grid-template-columns:
@@ -822,12 +652,9 @@ main {
         );
 
     gap: 25px;
-
 }
 
-
 .art-card {
-
     background: #111;
 
     border:
@@ -841,24 +668,18 @@ main {
     transition:
         transform .3s,
         box-shadow .3s;
-
 }
 
-
 .art-card:hover {
-
     transform:
         translateY(-8px);
 
     box-shadow:
         0 20px 50px
         rgba(0,0,0,.6);
-
 }
 
-
 .art-image {
-
     width: 100%;
 
     aspect-ratio: 4 / 5;
@@ -877,52 +698,36 @@ main {
     justify-content: center;
 
     overflow: hidden;
-
 }
 
-
 .art-image img {
-
     width: 100%;
 
     height: 100%;
 
     object-fit: cover;
-
 }
 
-
 .art-placeholder {
-
     color: #555;
 
     font-size: 50px;
-
 }
-
 
 .art-info {
-
     padding: 18px;
-
 }
-
 
 .art-info h2 {
-
     font-size: 17px;
-
 }
 
-
 .art-info p {
-
     color: #777;
 
     margin-top: 6px;
 
     font-size: 13px;
-
 }
 
 
@@ -931,7 +736,6 @@ main {
 ===================================================== */
 
 .book-grid {
-
     display: grid;
 
     grid-template-columns:
@@ -941,12 +745,9 @@ main {
         );
 
     gap: 25px;
-
 }
 
-
 .book {
-
     background: #111;
 
     border:
@@ -960,24 +761,18 @@ main {
     transition:
         transform .3s,
         box-shadow .3s;
-
 }
 
-
 .book:hover {
-
     transform:
         translateY(-8px);
 
     box-shadow:
         0 20px 50px
         rgba(0,0,0,.6);
-
 }
 
-
 .book-cover {
-
     width: 100%;
 
     aspect-ratio: 2 / 3;
@@ -1006,48 +801,33 @@ main {
     font-size: 40px;
 
     overflow: hidden;
-
 }
 
-
 .book-cover img {
-
     width: 100%;
 
     height: 100%;
 
     object-fit: cover;
-
 }
-
 
 .book-info {
-
     padding-top: 15px;
-
 }
-
 
 .book-info h2 {
-
     font-size: 17px;
-
 }
 
-
 .book-info p {
-
     margin-top: 6px;
 
     color: #777;
 
     font-size: 13px;
-
 }
 
-
 .book-button {
-
     display: block;
 
     width: 100%;
@@ -1070,15 +850,13 @@ main {
 
     font-size: 12px;
 
+    transition: .2s;
 }
 
-
 .book-button:hover {
-
     background: white;
 
     color: black;
-
 }
 
 
@@ -1089,42 +867,40 @@ main {
 @media(max-width:850px) {
 
     .navbar {
-
         padding: 15px;
 
         flex-direction: column;
 
         gap: 12px;
-
     }
 
     .nav-buttons {
-
         width: 100%;
 
         justify-content: center;
-
     }
 
     .nav-btn {
-
         flex: 1;
 
         padding:
             9px 6px;
-
     }
 
     .spotify-layout {
-
         grid-template-columns: 1fr;
-
     }
 
     .spotify-window {
-
         height: 600px;
+    }
 
+    #boot-screen {
+        padding: 18px;
+    }
+
+    #boot-code {
+        font-size: 10px;
     }
 
 }
@@ -1141,7 +917,6 @@ main {
 ===================================================== -->
 
 <div id="boot-screen">
-
 
     <div class="boot-top">
 
@@ -1172,7 +947,8 @@ main {
         </div>
 
         <div style="margin-top:12px;">
-            C:\MEDIA_ROOM&gt; <span class="cursor"></span>
+            C:\MEDIA_ROOM&gt;
+            <span class="cursor"></span>
         </div>
 
     </div>
@@ -1202,7 +978,6 @@ main {
     <div class="logo">
         MEDIA ROOM
     </div>
-
 
     <div class="nav-buttons">
 
@@ -1262,9 +1037,7 @@ main {
 
         <div class="spotify-window">
 
-            <div
-                id="spotify-player">
-            </div>
+            <div id="spotify-player"></div>
 
         </div>
 
@@ -1290,7 +1063,6 @@ main {
                     <div class="hole"></div>
 
                 </div>
-
 
                 <div class="arm"></div>
 
@@ -1595,7 +1367,7 @@ main {
 <script>
 
 /* =====================================================
-   RETRO BOOT SEQUENCE
+   RETRO BOOT
 ===================================================== */
 
 const bootCode =
@@ -1624,39 +1396,109 @@ const ready =
     );
 
 
-/* código falso estilo terminal */
+/*
+=====================================================
+REFERENCIAS DEL SISTEMA
+=====================================================
+*/
 
 const codeFragments = [
+
+    /* SYSTEM */
 
     "0x0000A4F2  SYSTEM_INIT",
     "0x0000B81C  MEMORY CHECK ........ OK",
     "0x0000C920  CPU INITIALIZATION",
     "0x0000D118  GRAPHICS DRIVER ..... OK",
-    "0x0000E004  AUDIO DRIVER ........ OK",
-    "0x0000EFA2  MEDIA ENGINE ........ OK",
-    "0x0001A882  LOADING KERNEL",
-    "0x0001B901  CHECKING FILE SYSTEM",
-    "0x0001C442  MOUNTING /MEDIA",
-    "0x0001D781  SCANNING DEVICES",
-    "0x0001E902  DEVICE 00 ............ READY",
-    "0x00020A11  DEVICE 01 ............ READY",
-    "0x00021D90  CACHE ................. READY",
-    "0x00022FA1  NETWORK ............... READY",
-    "0x000231B8  USER INTERFACE ........ OK",
-    "0x00024AA1  LOADING SPOTIFY MODULE",
-    "0x00025BC2  LOADING ART MODULE",
-    "0x00026DA8  LOADING LIBRARY MODULE",
-    "0x00028A10  INDEXING MEDIA",
-    "0x00029C77  BUILDING DATABASE",
-    "0x0002AE18  CHECKING PERMISSIONS",
-    "0x0002B991  STARTING MEDIA ROOM",
-    "0x0002C812  SYSTEM CHECK .......... OK",
-    "0x0002D551  ALL SYSTEMS NOMINAL"
+    "0x0000EFA2  AUDIO ENGINE ........ OK",
+
+
+    /* MUSIC */
+
+    "0x0001A882  ANALYZING AUDIO FILES",
+    "0x0001B901  SCANNING MUSIC LIBRARY",
+    "0x0001C442  DETECTING ALBUMS",
+    "0x0001D781  INDEXING PLAYLISTS",
+    "0x0001E902  VINYL EMULATION ....... OK",
+    "0x00020A11  TURNTABLE MOTOR ....... READY",
+    "0x00021D90  FREQUENCY ANALYSIS .... OK",
+    "0x00022FA1  SOUND ARCHIVE ......... MOUNTED",
+
+    "0x000231B8  REFERENCE: VINYL",
+    "0x00024AA1  REFERENCE: CASSETTE",
+    "0x00025BC2  REFERENCE: RADIO",
+    "0x00026DA8  REFERENCE: RECORD",
+
+    "0x00028A10  DAFT PUNK ARCHIVE ...... FOUND",
+    "0x00029C77  PINK FLOYD INDEX ....... FOUND",
+    "0x0002AE18  NIRVANA RECORDS ........ FOUND",
+    "0x0002B991  TWENTY ONE PILOTS ...... FOUND",
+
+
+    /* ART */
+
+    "0x0002C812  ART ENGINE ............ OK",
+    "0x0002D551  SCANNING ART ARCHIVE",
+    "0x0002E118  ANALYZING PAINTINGS",
+    "0x0002F204  CANVAS DATABASE ........ OK",
+    "0x000301A8  COLOR PALETTE .......... LOADED",
+    "0x00031291  VISUAL ARCHIVE ......... MOUNTED",
+    "0x00032AA1  GALLERY SYSTEM ......... READY",
+
+    "0x00033B82  REFERENCE: PAINTING",
+    "0x00034C11  REFERENCE: CANVAS",
+    "0x00035D90  REFERENCE: INK",
+    "0x00036FA1  REFERENCE: PHOTOGRAPHY",
+    "0x000371A8  REFERENCE: FILM",
+
+    "0x000382C1  MODERN ART COLLECTION .. FOUND",
+    "0x00039411  PAINTING DATABASE ...... FOUND",
+    "0x0003A882  SKETCH ARCHIVE ......... FOUND",
+
+
+    /* LITERATURE */
+
+    "0x0003B901  LITERATURE ENGINE ...... OK",
+    "0x0003CA42  SCANNING BOOK ARCHIVE",
+    "0x0003DB18  INDEXING AUTHORS",
+    "0x0003EC77  INDEXING STORIES",
+    "0x0003FD91  TEXT DATABASE .......... READY",
+    "0x00040A11  LIBRARY CATALOG ........ OK",
+    "0x00041B82  READING MODULE ......... READY",
+
+    "0x00042C90  REFERENCE: BOOK",
+    "0x00043DA1  REFERENCE: POETRY",
+    "0x00044F18  REFERENCE: PROSE",
+    "0x00045A81  REFERENCE: NOVEL",
+    "0x00046B92  REFERENCE: SHORT STORY",
+
+    "0x00047C18  NOVEL DATABASE ......... FOUND",
+    "0x00048DA2  POETRY ARCHIVE ......... FOUND",
+    "0x00049F11  LITERARY INDEX ......... FOUND",
+
+
+    /* RANDOM MEDIA */
+
+    "0x0004AA81  SEARCHING MEDIA ARCHIVE",
+    "0x0004BC22  UNKNOWN MEDIA FORMAT DETECTED",
+    "0x0004CD91  ATTEMPTING RECOVERY",
+    "0x0004DE12  RECOVERY COMPLETE",
+
+    "0x0004EF81  MEDIA ROOM CORE ........ OK",
+    "0x0004FA22  MUSIC MODULE ........... READY",
+    "0x00050B91  ART MODULE ............. READY",
+    "0x00051C18  LITERATURE MODULE ...... READY",
+
+    "0x00052D81  ALL MEDIA SYSTEMS ...... NOMINAL"
 
 ];
 
 
-/* generar líneas */
+/*
+=====================================================
+CREAR CÓDIGO ALEATORIO
+=====================================================
+*/
 
 function addCodeLine() {
 
@@ -1664,6 +1506,7 @@ function addCodeLine() {
         document.createElement(
             "div"
         );
+
 
     const random =
         codeFragments[
@@ -1675,7 +1518,7 @@ function addCodeLine() {
         ];
 
 
-    const hex =
+    const number =
         Math.floor(
             Math.random()
             *
@@ -1689,12 +1532,51 @@ function addCodeLine() {
         "code-line";
 
 
+    let className =
+        "code-white";
+
+
+    if (
+        random.includes(
+            "REFERENCE"
+        )
+    ) {
+
+        className =
+            "code-blue";
+
+    }
+
+    else if (
+        random.includes(
+            "FOUND"
+        )
+    ) {
+
+        className =
+            "code-green";
+
+    }
+
+    else if (
+        random.includes(
+            "WARNING"
+        )
+    ) {
+
+        className =
+            "code-yellow";
+
+    }
+
+
     line.innerHTML =
+
         `<span class="code-gray">
-            0x${hex}
+            0x${number}
         </span>
         &nbsp;
-        <span class="code-white">
+        <span class="${className}">
             ${random}
         </span>`;
 
@@ -1704,15 +1586,9 @@ function addCodeLine() {
     );
 
 
-    /*
-       Mantener solo las últimas
-       líneas para que no explote
-       el navegador.
-    */
-
     if (
         bootCode.children.length
-        > 42
+        > 45
     ) {
 
         bootCode.removeChild(
@@ -1721,25 +1597,27 @@ function addCodeLine() {
 
     }
 
-
-    bootCode.scrollTop =
-        bootCode.scrollHeight;
-
 }
 
 
-/* llenar código */
+/*
+=====================================================
+CÓDIGO CONSTANTE
+=====================================================
+*/
 
 let codeInterval =
     setInterval(
         addCodeLine,
-        45
+        42
     );
 
 
-/* =====================================================
-   PROGRESO
-===================================================== */
+/*
+=====================================================
+PROGRESS BAR
+=====================================================
+*/
 
 let percent = 0;
 
@@ -1749,7 +1627,8 @@ const progressInterval =
         () => {
 
             percent +=
-                Math.random() * 3;
+                Math.random() * 2.8;
+
 
             if (
                 percent >= 100
@@ -1770,10 +1649,6 @@ const progressInterval =
                     "SYSTEM READY";
 
 
-                /*
-                   Mostrar READY
-                */
-
                 setTimeout(
                     () => {
 
@@ -1781,13 +1656,9 @@ const progressInterval =
                             "1";
 
                     },
-                    200
+                    250
                 );
 
-
-                /*
-                   Salir del boot
-                */
 
                 setTimeout(
                     () => {
@@ -1798,11 +1669,8 @@ const progressInterval =
                         bootScreen.style.visibility =
                             "hidden";
 
-                        document.body.style.overflowX =
-                            "hidden";
-
                     },
-                    1400
+                    1500
                 );
 
             }
@@ -1812,36 +1680,48 @@ const progressInterval =
                 percent + "%";
 
 
-            /*
-               Cambiar mensajes
-               según progreso
-            */
-
-            if (percent < 20) {
+            if (
+                percent < 20
+            ) {
 
                 bootStatus.textContent =
                     "Initializing hardware...";
 
             }
 
-            else if (percent < 40) {
+            else if (
+                percent < 40
+            ) {
 
                 bootStatus.textContent =
                     "Loading system drivers...";
 
             }
 
-            else if (percent < 60) {
+            else if (
+                percent < 60
+            ) {
 
                 bootStatus.textContent =
                     "Mounting media devices...";
 
             }
 
-            else if (percent < 80) {
+            else if (
+                percent < 80
+            ) {
 
                 bootStatus.textContent =
-                    "Loading Media Room...";
+                    "Loading Music / Art / Literature...";
+
+            }
+
+            else if (
+                percent < 95
+            ) {
+
+                bootStatus.textContent =
+                    "Indexing personal media...";
 
             }
 
@@ -1858,9 +1738,11 @@ const progressInterval =
     );
 
 
-/* =====================================================
-   NAVIGATION
-===================================================== */
+/*
+=====================================================
+NAVIGATION
+=====================================================
+*/
 
 function showSection(
     sectionID,
@@ -1916,9 +1798,11 @@ function showSection(
 }
 
 
-/* =====================================================
-   SPOTIFY
-===================================================== */
+/*
+=====================================================
+SPOTIFY
+=====================================================
+*/
 
 const playlistURL =
     "https://open.spotify.com/playlist/0aFukFImzZqlBhQzskT2T3";
@@ -1972,9 +1856,11 @@ function stopVinyl() {
 }
 
 
-/* =====================================================
-   SPOTIFY IFRAME API
-===================================================== */
+/*
+=====================================================
+SPOTIFY IFRAME API
+=====================================================
+*/
 
 window.onSpotifyIframeApiReady =
     (IFrameAPI) => {
